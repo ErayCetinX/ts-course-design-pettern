@@ -7,10 +7,20 @@ interface Sortable {
   swap(leftIndex: number, rightIndex: number): void;
 }
 
-export class Sorter {
-  constructor(public collection: Sortable) {}
+// abstract class'ı soyutlamaya yarar
+// abstract kullanılan class new ile çağırılamaz
+// sadece parent classlarda kullanılır
+// Sort classta kullanılan functionlar diğer classlardan gelecekmiş
+// gibi yapıldı. Böyle funcların geleceğini var sayar
+// Sorter class'ını extend eden classlarda olması gereken funcları abstract ile belirledik
+// böylelikle constructor'daki collection'a ihityaç kalmadı
+export abstract class Sorter {
+  abstract compare(leftIndex: number, rightIndex: number): boolean;
+  abstract swap(leftIndex: number, rightIndex: number): void;
+  abstract length: number;
+
   sort(): void {
-    const {length} = this.collection
+    const {length} = this
     for (let i = 0; i < length; i++) {
       // instanceof, değerin o sınıfa ait olup olmadığını belirtir true/false döner
       // instanceof, primitive tpye olmayan değerlerin tiplerini kontrol etmek için kullanılır
@@ -23,8 +33,8 @@ export class Sorter {
       // if (this.collection instanceof Array) 
 
       for (let j = 0; j < length - i - 1; j++) {
-        if (this.collection.compare(j, j + 1)) {
-          this.collection.swap(j, j + 1)
+        if (this.compare(j, j + 1)) {
+          this.swap(j, j + 1)
         }
       }
 

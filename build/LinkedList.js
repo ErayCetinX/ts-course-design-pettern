@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LinkedList = void 0;
+const Sorter_1 = require("./Sorter");
 // Node dizideki her bir elemanın value ve next bileşenine denir
 class Node {
     constructor(data) {
@@ -10,8 +11,9 @@ class Node {
         this.next = null;
     }
 }
-class LinkedList {
+class LinkedList extends Sorter_1.Sorter {
     constructor() {
+        super(...arguments);
         // head bir node referans olacaktır
         // eğerki head null ise linkedlist boştur anlamına gelir
         this.head = null;

@@ -1,3 +1,5 @@
+import {Sorter} from "./Sorter";
+
 // Node dizideki her bir elemanın value ve next bileşenine denir
 class Node {
   // nullda olabilir eğer null ise listenin sonuna geldik demektir
@@ -7,7 +9,7 @@ class Node {
   constructor(public data: number) {}
 }
 
-export class LinkedList {
+export class LinkedList extends Sorter {
   // head bir node referans olacaktır
   // eğerki head null ise linkedlist boştur anlamına gelir
   head: Node | null = null

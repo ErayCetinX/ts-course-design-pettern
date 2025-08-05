@@ -1,6 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Sorter = void 0;
+// abstract class'ı soyutlamaya yarar
+// abstract kullanılan class new ile çağırılamaz
+// sadece parent classlarda kullanılır
+// Sort classta kullanılan functionlar diğer classlardan gelecekmiş
+// gibi yapıldı. Böyle funcların geleceğini var sayar
+// Sorter class'ını extend eden classlarda olması gereken funcları abstract ile belirledik
+// böylelikle constructor'daki collection'a ihityaç kalmadı
 class Sorter {
     sort() {
         const { length } = this;
